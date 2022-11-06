@@ -4,7 +4,11 @@ const cors = require('cors');
 const { Todo } = require("./Routes/Todo.Routes");
 require("dotenv").config();
 const app = express();
-app.use(cors());
+const corsOptions = {
+    origin: 'https://mern-app-rockaro.onrender.com',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/todos", Todo)
 
