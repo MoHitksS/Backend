@@ -8,6 +8,10 @@ app.use(cors());
 app.use(express.json());
 app.use("/todos", Todo)
 
+app.get('/', (req, res)=>{
+    res.send("Homepage")
+})
+
 app.listen(process.env.PORT, async () => {
     try{
         await connection
